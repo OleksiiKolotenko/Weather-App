@@ -1,0 +1,111 @@
+.left_bar {
+  width: 500px;
+  height: 100%;
+  background: #ffffff;
+  padding: 50px 40px 0px 40px;
+}
+
+.input_field {
+  width: 360px;
+  height: 44px;
+  background: #f3f3f3;
+  border-radius: 50px;
+}
+
+.input {
+  font-size: 20px;
+  color: black;
+  font-weight: 400;
+  background: #f3f3f3;
+  margin: 11px 0px 10px 12px;
+}
+
+.input::placeholder {
+  color: black;
+  opacity: 0.9;
+}
+
+.loupe {
+  margin: 11px 0px 9px 17px;
+}
+
+.left_header {
+  display: flex;
+  flex-direction: row;
+}
+
+.button_circle {
+  width: 44px;
+  height: 44px;
+  background: #f3f3f3;
+  border-radius: 50px;
+  margin-left: 16px;
+  button {
+    padding: 11px;
+  }
+}
+
+.big_picture {
+  padding-top: 41px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+.current_degree {
+  font-weight: 300;
+  font-size: 112px;
+}
+
+.current_location {
+  font-weight: 500;
+  font-size: 36px;
+  padding-top: 21px;
+}
+
+.current_date {
+  font-size: 24px;
+  padding-top: 16px;
+  .current_day {
+    font-weight: 400;
+    padding-right: 10px;
+  }
+  .current_time {
+    font-weight: 500;
+    color: #bbbbbb;
+  }
+}
+
+hr {
+  border: none;
+  background-color: #bbbbbb;
+  color: #bbbbbb;
+  height: 1px;
+  margin-top: 27px;
+  width: 410px;
+  opacity: 0.8;
+}
+
+.descriptions {
+  font-weight: 400;
+  font-size: 20px;
+  div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.cloud_prediction {
+  padding-top: 41px;
+  padding-bottom: 18px;
+  span {
+    padding-left: 12px;
+  }
+}
+
+.weather_prediction {
+  span {
+    padding-left: 12px;
+  }
+}
