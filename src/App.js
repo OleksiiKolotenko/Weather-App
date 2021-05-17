@@ -4,15 +4,15 @@ import { LeftBar, RightBar } from "./components/index.js";
 import { fetchLocation } from "./redux/actions/location.js";
 
 function App() {
+  const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchLocation());
   }, []);
-  const dispatch = useDispatch();
 
-  const location = useSelector(({ location }) => location.location);
+  const weather = useSelector(({ weather }) => weather.weather);
   return (
     <div className="wrapper">
-      {location.city && (
+      {weather.daily && (
         <>
           <LeftBar />
           <RightBar />
