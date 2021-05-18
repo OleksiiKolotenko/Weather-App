@@ -63,6 +63,9 @@
 }
 
 .days {
+  :hover {
+    transform: scale(1.02);
+  }
   display: flex;
   justify-content: space-between;
   padding-top: 75px;
@@ -115,6 +118,7 @@ h1 {
   &_upper {
     display: flex;
     flex-direction: row;
+
     .highlights_block {
       margin-right: 30px;
       margin-bottom: 30px;
@@ -195,7 +199,6 @@ h1 {
   }
   &_type {
     font-size: 20px;
-    margin: 22px 0px 0px 5px;
     &_state {
       font-size: 18px;
     }

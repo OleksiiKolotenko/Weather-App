@@ -5,11 +5,9 @@ import sun from "../assets/img/sun.svg";
 function Days({ date }) {
   const dateNow = new Date(date * 1000);
   const weather = useSelector(({ weather }) => weather.weather);
-  const daysOfWeek = ["Sun", "Mon", "Tue", "Thu", "Fri", "Sat"];
-
   return (
     <div className="days_block">
-      <span className="day">{dateNow.getDay()}</span>
+      <span className="day">{dateNow.toString().slice(0, 3)}</span>
       <img src={sun} className="sun" alt="sun" />
       <div className="tempratures">
         <span className="day_temperature">

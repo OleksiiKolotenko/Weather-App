@@ -18,6 +18,8 @@ const days = [
 
 export const LeftBar = () => {
   const location = useSelector(({ location }) => location.location);
+  const weather = useSelector(({ weather }) => weather.weather);
+  console.log(weather);
   const date = new Date();
   return (
     <div className="left_bar">
@@ -38,7 +40,9 @@ export const LeftBar = () => {
       </div>
       <img src={drizzle} alt="drizzle" className="big_picture" />
       <div className="info">
-        <span className="current_degree">14°c</span>
+        <span className="current_degree">
+          {Math.trunc(weather.current.temp)}&#176;
+        </span>
         <span className="current_location">
           {location.city}, {location.country}
         </span>
