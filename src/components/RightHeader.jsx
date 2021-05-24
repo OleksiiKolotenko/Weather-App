@@ -4,10 +4,8 @@ import { useState } from "react";
 const availableDaysOptions = ["Today", "Week"];
 const availableDegreesOptions = ["°c", "°F"];
 
-function RightHeader() {
-  const [activeDaysOption, setActiveDaysOption] = useState(1);
+function RightHeader({ switchDays, daysOption }) {
   const [activeDegreeType, setActiveDegreeType] = useState(0);
-
   return (
     <div className="right_bar__header">
       <div className="days_switch">
@@ -15,9 +13,9 @@ function RightHeader() {
           <button
             key={`${index}_${obj}`}
             className={`button_days ${
-              activeDaysOption === index ? "active_days" : ""
+              switchDays === index ? "active_days" : ""
             }`}
-            onClick={() => setActiveDaysOption(index)}
+            onClick={() => daysOption(index)}
           >
             {obj}
           </button>

@@ -57,11 +57,18 @@ export const LeftBar = () => {
       <div className="descriptions">
         <div className="cloud_prediction">
           <img src={cloud1} alt="cloud_prediction" />
-          <span className="cloud_description">Mostly Cloudy</span>
+          <span className="cloud_description">
+            Clouds - {weather.current.clouds}%
+          </span>
         </div>
         <div className="weather_prediction">
           <img src={cloud2} alt="weather_prediction" />
-          <span className="weather_description">Rain - 30%</span>
+          <span className="weather_description">
+            {weather.current.weather[0].description
+              .toString()
+              .charAt(0)
+              .toUpperCase() + weather.current.weather[0].description.slice(1)}
+          </span>
         </div>
       </div>
     </div>

@@ -1,22 +1,26 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import sun from "../assets/img/sun.svg";
 
-function Days({ date }) {
+function Days({ date, day, night, temp, switchDays }) {
   const dateNow = new Date(date * 1000);
-  const weather = useSelector(({ weather }) => weather.weather);
   return (
     <div className="days_block">
-      <span className="day">{dateNow.toString().slice(0, 3)}</span>
+      <span className="day">
+        {switchDays === 1
+          ? dateNow.toString().slice(0, 3)
+          : dateNow.toString().slice(16, 21)}
+      </span>
       <img src={sun} className="sun" alt="sun" />
       <div className="tempratures">
         <span className="day_temperature">
-          {Math.trunc(weather.daily[dateNow.getDay()].temp.day)}
+          {switchDays === 1 ? Math.trunc(day) : Math.trunc(temp)}
           &#176;
         </span>
-        <span className="night_temperature">
-          {Math.trunc(weather.daily[dateNow.getDay()].temp.night)}&#176;
-        </span>
+        {switchDays === 1 ? (
+          <span className="night_temperature">{Math.trunc(night)}&#176;</span>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
