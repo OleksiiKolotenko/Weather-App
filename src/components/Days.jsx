@@ -1,7 +1,7 @@
 import React from "react";
-import sun from "../assets/img/sun.svg";
+import pictures from "../utils/pictures";
 
-function Days({ date, day, night, temp, switchDays }) {
+function Days({ date, day, night, temp, switchDays, id }) {
   const dateNow = new Date(date * 1000);
   return (
     <div className="days_block">
@@ -10,7 +10,7 @@ function Days({ date, day, night, temp, switchDays }) {
           ? dateNow.toString().slice(0, 3)
           : dateNow.toString().slice(16, 21)}
       </span>
-      <img src={sun} className="sun" alt="sun" />
+      <img src={pictures(id)} className="pic" alt="pic" />
       <div className="tempratures">
         <span className="day_temperature">
           {switchDays === 1 ? Math.trunc(day) : Math.trunc(temp)}

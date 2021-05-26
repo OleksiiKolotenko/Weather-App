@@ -47,6 +47,8 @@
 
 .big_picture {
   padding-top: 41px;
+  width: 400px;
+  height: 450px;
 }
 
 .info {
@@ -99,13 +101,27 @@ hr {
 .cloud_prediction {
   padding-top: 41px;
   padding-bottom: 18px;
+  img {
+    width: 45px;
+    height: 45px;
+  }
   span {
     padding-left: 20px;
   }
 }
 
 .weather_prediction {
+  img {
+    width: 50px;
+    height: 50px;
+  }
   span {
     padding-left: 12px;
   }
+}
+
+.pic {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 13px;
 }

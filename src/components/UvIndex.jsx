@@ -1,6 +1,6 @@
 import React from "react";
 
-function UV_Index({ uvi }) {
+function UvIndex({ uvi }) {
   const [uvStatus, setUvStatus] = React.useState("");
   React.useEffect(() => {
     if (uvi <= 2) {
@@ -19,7 +19,11 @@ function UV_Index({ uvi }) {
       <div className="uv_index">
         <span className="uv_index_value">{uvi.toFixed(1)}</span>
         <div className="uv_index_scale">
-          <div style={{ height: uvi * 9 }} className="uv_index_ball"></div>
+          {uvi * 6.3 <= 16 ? (
+            <div className="uv_index_ball"></div>
+          ) : (
+            <div style={{ height: uvi * 6.3 }} className="uv_index_ball"></div>
+          )}
         </div>
       </div>
       <span className="uv_state">{uvStatus}</span>
@@ -27,4 +31,4 @@ function UV_Index({ uvi }) {
   );
 }
 
-export default UV_Index;
+export default UvIndex;

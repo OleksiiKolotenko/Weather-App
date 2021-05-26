@@ -3,7 +3,7 @@ import loupe from "../assets/img/loupe.svg";
 import house from "../assets/img/house.svg";
 import drizzle from "../assets/img/drizzle.svg";
 import cloud1 from "../assets/img/cloud1.png";
-import cloud2 from "../assets/img/cloud2.png";
+import cloud_state from "../assets/img/cloud_state.svg";
 import { useSelector } from "react-redux";
 
 const days = [
@@ -62,7 +62,7 @@ export const LeftBar = () => {
           </span>
         </div>
         <div className="weather_prediction">
-          <img src={cloud2} alt="weather_prediction" />
+          <img src={cloud_state} alt="cloud_state" className="cloud_state" />
           <span className="weather_description">
             {weather.current.weather[0].description
               .toString()

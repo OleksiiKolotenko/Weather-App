@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import {
   RightHeader,
   Days,
-  UV_Index,
+  UvIndex,
   Wind,
   SunriseSunset,
   Humidity,
@@ -28,6 +28,7 @@ export const RightBar = () => {
               .slice(1, 8)
               .map((obj, index) => (
                 <Days
+                  id={obj.weather[0].id}
                   switchDays={switchDays}
                   key={`${obj.dt},${index}`}
                   date={obj.dt}
@@ -41,6 +42,7 @@ export const RightBar = () => {
               }
               return (
                 <Days
+                  id={obj.weather[0].id}
                   switchDays={switchDays}
                   key={`${obj.dt},${index}`}
                   date={obj.dt}
@@ -53,7 +55,7 @@ export const RightBar = () => {
       <div className="highlights">
         <div className="all_highlights">
           <div className="highlights_upper">
-            <UV_Index uvi={weather.current.uvi} />
+            <UvIndex uvi={weather.current.uvi} />
             <Wind windSpeed={weather.current.wind_speed} />
             <SunriseSunset
               sunrise={weather.current.sunrise}
