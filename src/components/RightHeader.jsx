@@ -1,11 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 const availableDaysOptions = ["Today", "Week"];
 const availableDegreesOptions = ["°c", "°F"];
 
-function RightHeader({ switchDays, daysOption }) {
-  const [activeDegreeType, setActiveDegreeType] = useState(0);
+function RightHeader({ switchDays, daysOption, unitsOption, switchUnits }) {
   return (
     <div className="right_bar__header">
       <div className="days_switch">
@@ -22,13 +22,13 @@ function RightHeader({ switchDays, daysOption }) {
         ))}
       </div>
       <div className="degree_switch">
-        {availableDegreesOptions.map((obj, index) => (
+        {availableDegreesOptions.map((obj, units) => (
           <button
-            key={`${index}_${obj}`}
+            key={`${units}_${obj}`}
             className={`button_degree ${
-              activeDegreeType === index ? "active_degree" : ""
+              switchUnits === units ? "active_degree" : ""
             }`}
-            onClick={() => setActiveDegreeType(index)}
+            onClick={() => unitsOption(units)}
           >
             {obj}
           </button>

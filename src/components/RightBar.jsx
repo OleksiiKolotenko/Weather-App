@@ -16,12 +16,21 @@ import {
 export const RightBar = () => {
   const weather = useSelector(({ weather }) => weather.weather);
   const [switchDays, setSwitchDays] = React.useState(1);
+  const [switchUnits, setSwitchUnits] = React.useState(0);
   function daysOption(activeDaysOption) {
     setSwitchDays(activeDaysOption);
   }
+  function unitsOption(activeUnitsOption) {
+    setSwitchUnits(activeUnitsOption);
+  }
   return (
     <div className="right_bar">
-      <RightHeader switchDays={switchDays} daysOption={daysOption} />
+      <RightHeader
+        switchDays={switchDays}
+        switchUnits={switchUnits}
+        daysOption={daysOption}
+        unitsOption={unitsOption}
+      />
       <div className="days">
         {switchDays === 1
           ? weather.daily
@@ -30,6 +39,7 @@ export const RightBar = () => {
                 <Days
                   id={obj.weather[0].id}
                   switchDays={switchDays}
+                  switchUnits={switchUnits}
                   key={`${obj.dt},${index}`}
                   date={obj.dt}
                   day={obj.temp.day}
@@ -68,6 +78,7 @@ export const RightBar = () => {
             <MinMaxTemp
               min={weather.daily[0].temp.min}
               max={weather.daily[0].temp.max}
+              switchUnits={switchUnits}
             />
           </div>
         </div>

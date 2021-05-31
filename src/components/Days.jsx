@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import pictures from "../utils/pictures";
 
-function Days({ date, day, night, temp, switchDays, id }) {
+function Days({ date, day, night, temp, switchDays, id, switchUnits }) {
   const dateNow = new Date(date * 1000);
+  if (switchUnits === 1) {
+    day = day * 1.8 + 32;
+    temp = temp * 1.8 + 32;
+    night = night * 1.8 + 32;
+  }
   return (
     <div className="days_block">
       <span className="day">

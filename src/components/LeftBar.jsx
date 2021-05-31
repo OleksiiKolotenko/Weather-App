@@ -1,7 +1,7 @@
 import React from "react";
 import loupe from "../assets/img/loupe.svg";
 import house from "../assets/img/house.svg";
-import drizzle from "../assets/img/drizzle.svg";
+import pictures from "../utils/pictures";
 import cloud1 from "../assets/img/cloud1.png";
 import cloud_state from "../assets/img/cloud_state.svg";
 import { useSelector } from "react-redux";
@@ -16,11 +16,12 @@ const days = [
   "Saturday",
 ];
 
-export const LeftBar = () => {
+export const LeftBar = ({ switchUnits }) => {
   const location = useSelector(({ location }) => location.location);
   const weather = useSelector(({ weather }) => weather.weather);
   console.log(weather);
   const date = new Date();
+  console.log(switchUnits);
   return (
     <div className="left_bar">
       <div className="left_header">
@@ -38,7 +39,11 @@ export const LeftBar = () => {
           </button>
         </div>
       </div>
-      <img src={drizzle} alt="drizzle" className="big_picture" />
+      <img
+        src={pictures(weather.current.weather[0].id)}
+        alt="drizzle"
+        className="big_picture"
+      />
       <div className="info">
         <span className="current_degree">
           {Math.trunc(weather.current.temp)}&#176;

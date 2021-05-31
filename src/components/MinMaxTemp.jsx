@@ -1,7 +1,13 @@
 import React from "react";
 import hot from "../assets/img/hot.svg";
 import cold from "../assets/img/cold.svg";
-function MinMaxTemp({ min, max }) {
+
+function MinMaxTemp({ min, max, switchUnits }) {
+  console.log(switchUnits);
+  if (switchUnits === 1) {
+    max = max * 1.8 + 32;
+    min = min * 1.8 + 32;
+  }
   return (
     <div className="highlights_block">
       <span className="title">Max/mix temprature</span>
