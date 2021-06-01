@@ -5,7 +5,7 @@ import pictures from "../utils/pictures";
 import cloud1 from "../assets/img/cloud1.png";
 import cloud_state from "../assets/img/cloud_state.svg";
 import { useSelector } from "react-redux";
-
+import UnitsContext from "../utils/context";
 const days = [
   "Sunday",
   "Monday",
@@ -16,12 +16,19 @@ const days = [
   "Saturday",
 ];
 
-export const LeftBar = ({ switchUnits }) => {
+export const LeftBar = () => {
   const location = useSelector(({ location }) => location.location);
   const weather = useSelector(({ weather }) => weather.weather);
+  const { switchUnits } = React.useContext(UnitsContext);
+  const [currentTemp, setCurrentTemp] = React.useState(weather.current.temp);
+  React.useEffect(() => {
+    if (switchUnits === 0) {
+      setCurrentTemp(weather.current.temp);
+    } else setCurrentTemp(currentTemp * 1.8 + 32);
+  }, [switchUnits]);
+  console.log(currentTemp);
   console.log(weather);
   const date = new Date();
-  console.log(switchUnits);
   return (
     <div className="left_bar">
       <div className="left_header">
@@ -45,9 +52,7 @@ export const LeftBar = ({ switchUnits }) => {
         className="big_picture"
       />
       <div className="info">
-        <span className="current_degree">
-          {Math.trunc(weather.current.temp)}&#176;
-        </span>
+        <span className="current_degree">{Math.trunc(currentTemp)}&#176;</span>
         <span className="current_location">
           {location.city}, {location.country}
         </span>

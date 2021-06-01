@@ -3,7 +3,7 @@ import React from "react";
 function Wind({ windSpeed }) {
   const [windStatus, setWindStatus] = React.useState("");
   React.useEffect(() => {
-    if (windSpeed <= 1) {
+    if (windSpeed >= 0 && windSpeed <= 1.4) {
       setWindStatus("Light air");
     }
     if (windSpeed >= 1.5 && windSpeed <= 2) {

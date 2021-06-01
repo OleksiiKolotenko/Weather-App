@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import UnitsContext from "../utils/context";
 
 import {
   RightHeader,
@@ -16,7 +17,7 @@ import {
 export const RightBar = () => {
   const weather = useSelector(({ weather }) => weather.weather);
   const [switchDays, setSwitchDays] = React.useState(1);
-  const [switchUnits, setSwitchUnits] = React.useState(0);
+  const { switchUnits, setSwitchUnits } = React.useContext(UnitsContext);
   function daysOption(activeDaysOption) {
     setSwitchDays(activeDaysOption);
   }

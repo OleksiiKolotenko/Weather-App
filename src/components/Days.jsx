@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import pictures from "../utils/pictures";
-
-function Days({ date, day, night, temp, switchDays, id, switchUnits }) {
+import UnitsContext from "../utils/context";
+function Days({ date, day, night, temp, switchDays, id }) {
   const dateNow = new Date(date * 1000);
+  const { switchUnits } = React.useContext(UnitsContext);
   if (switchUnits === 1) {
     day = day * 1.8 + 32;
     temp = temp * 1.8 + 32;

@@ -8,7 +8,6 @@ function App() {
   React.useEffect(() => {
     dispatch(fetchLocation());
   }, []);
-
   const weather = useSelector(({ weather }) => weather.weather);
   return (
     <div className="wrapper">
